@@ -12,6 +12,9 @@ public class Quantity extends Identificable {
     private Integer integer;
     private Integer decimal;
 
+    private Integer integerOperate;
+    private Integer decimalOperate;
+
     public Quantity(Integer integer) {
         this.integer = integer;
         this.kindOfQuantity = KindOfQuantity.UNIT;
