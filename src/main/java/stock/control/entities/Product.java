@@ -17,6 +17,9 @@ public abstract class Product<KindOfQuantity> {
     @Column(name = "date_modified")
     private LocalDateTime dateModified;
 
+    @Column(name = "quantity_stocked")
+    private KindOfQuantity kindOfQuantity;
+
 
     //public methods
     public abstract boolean isSelleable(KindOfQuantity quantity);
