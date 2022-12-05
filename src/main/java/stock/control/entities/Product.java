@@ -11,7 +11,10 @@ public class Product {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
+    @Column(name = "date_created")
     private LocalDateTime dateCreated;
+    @Column(name = "date_modified")
     private LocalDateTime dateModified;
 
     public Long getId() {
