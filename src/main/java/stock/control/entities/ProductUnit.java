@@ -1,8 +1,8 @@
 package stock.control.entities;
 
-import jakarta.persistence.Column;
-
-public class ProductUnit extends Product{
-    @Column(name = "unit")
-    private Integer unit;
+public class ProductUnit extends Product<Integer>{
+    @Override
+    public boolean isSelleable(Integer integer) {
+        return false;
+    }
 }

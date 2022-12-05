@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Product {
+public abstract class Product<KindOfQuantity> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -16,6 +16,23 @@ public class Product {
     private LocalDateTime dateCreated;
     @Column(name = "date_modified")
     private LocalDateTime dateModified;
+
+
+    //public methods
+    public abstract boolean isSelleable(KindOfQuantity quantity);
+
+
+
+
+
+
+
+
+
+
+
+
+    //getter setters
 
     public Long getId() {
         return id;
