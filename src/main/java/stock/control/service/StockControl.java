@@ -1,6 +1,24 @@
 package stock.control.service;
 
-public interface StockControl {
+import stock.control.entities.base.Product;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public abstract class StockControl {
+    public List<Product> substractQuantityAll(List<Product> products){
+        return products.stream()
+                .map(this::substractQuantity)
+                .collect(Collectors.toList());
+    };
+    public List<Product> addQuantityAll(List<Product> products){
+        return products.stream()
+                .map(this::addQuantity)
+                .collect(Collectors.toList());
+    };
+
+    public abstract Product substractQuantity(Product product);
+    public abstract Product addQuantity(Product product);
 
 
 
