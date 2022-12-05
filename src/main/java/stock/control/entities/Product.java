@@ -18,7 +18,7 @@ public abstract class Product<KindOfQuantity> {
     private LocalDateTime dateModified;
 
     @Column(name = "quantity_stocked")
-    private KindOfQuantity kindOfQuantity;
+    protected KindOfQuantity kindOfQuantity;
 
 
     //public methods
