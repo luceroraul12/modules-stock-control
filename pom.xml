@@ -16,6 +16,17 @@
             <version>3.0.0</version>
             <optional>true</optional>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
