@@ -1,6 +1,7 @@
 package stock.control.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 
@@ -17,21 +18,13 @@ public abstract class Product<KindOfQuantity> {
     @Column(name = "date_modified")
     private LocalDateTime dateModified;
 
-    @Column(name = "quantity_stocked")
-    protected KindOfQuantity kindOfQuantity;
-
+    @Column(name = "quantity")
+    protected Quantity quantity;
 
     //public methods
-    public abstract boolean isSelleable(KindOfQuantity quantity);
-
-
-
-
-
-
-
-
-
+    public boolean isSelleable(Number quantity){
+        return this.quantity.isMinorOrEqualThanQuantityStocked(quantity);
+    };
 
 
 
@@ -59,5 +52,13 @@ public abstract class Product<KindOfQuantity> {
 
     public void setDateModified(LocalDateTime dateModified) {
         this.dateModified = dateModified;
+    }
+
+    public Quantity getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(Quantity quantity) {
+        this.quantity = quantity;
     }
 }
