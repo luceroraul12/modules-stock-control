@@ -30,6 +30,20 @@ public class StockControlService extends StockControl {
 
     @Override
     public Product addQuantity(Product product) {
-        return null;
+        KindOfQuantity kindOfQuantity = product.getQuantity().getKindOfQuantity();
+        Integer integerActual = product.getQuantity().getInteger();
+        Integer integerOperate = product.getQuantity().getIntegerOperate();
+        int integerResult;
+        Integer decimalActual = product.getQuantity().getDecimal();
+        Integer decimalOperate = product.getQuantity().getDecimalOperate();
+        int decimalResult;
+
+        integerResult = integerActual - integerOperate;
+        decimalResult = decimalActual - decimalOperate;
+
+        product.getQuantity().setInteger(integerResult);
+        product.getQuantity().setDecimal(decimalResult);
+
+        return product;
     }
 }

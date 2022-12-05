@@ -17,6 +17,10 @@ public abstract class StockControl {
                 .collect(Collectors.toList());
     };
 
+    public boolean verifyPositive(Integer number){
+        return number >= 0;
+    }
+
     public abstract Product substractQuantity(Product product);
     public abstract Product addQuantity(Product product);
 
