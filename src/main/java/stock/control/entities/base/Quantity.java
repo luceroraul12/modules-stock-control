@@ -7,17 +7,20 @@ import stock.control.enums.KindOfQuantity;
 
 @Getter
 @Setter
-@MappedSuperclass
 public class Quantity extends Identificable {
-    @Column(name = "kind-of-quantity")
     private KindOfQuantity kindOfQuantity;
-    @Column(name = "integer")
     private Integer integer;
-    @Column(name = "decimal")
     private Integer decimal;
 
-    public Quantity(KindOfQuantity kindOfQuantity) {
-        this.kindOfQuantity = kindOfQuantity;
+    public Quantity(Integer integer) {
+        this.integer = integer;
+        this.kindOfQuantity = KindOfQuantity.UNIT;
+    }
+
+    public Quantity(Integer integer, Integer decimal) {
+        this.integer = integer;
+        this.decimal = decimal;
+        this.kindOfQuantity = KindOfQuantity.WHEIGHT;
     }
 
     public boolean isMinorOrEqualThanQuantityStocked(Number quantity){
