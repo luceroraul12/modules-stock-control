@@ -8,7 +8,7 @@ import java.util.List;
 
 public class StockControlService extends StockControl {
     @Override
-    public Product substractQuantity(Product product) {
+    public Product substractQuantity(Product product) throws Exception {
         KindOfQuantity kindOfQuantity = product.getQuantity().getKindOfQuantity();
 
         Integer integerActual = product.getQuantity().getInteger();
@@ -19,8 +19,8 @@ public class StockControlService extends StockControl {
         Integer decimalOperate = product.getQuantity().getDecimalOperate();
         int decimalResult;
 
-        integerResult = integerActual + integerOperate;
-        decimalResult = decimalActual + decimalOperate;
+        integerResult = substract(integerActual, integerOperate);
+        decimalResult = substract(decimalActual, decimalOperate);
 
         product.getQuantity().setInteger(integerResult);
         product.getQuantity().setDecimal(decimalResult);
@@ -29,7 +29,7 @@ public class StockControlService extends StockControl {
     }
 
     @Override
-    public Product addQuantity(Product product) {
+    public Product addQuantity(Product product) throws Exception {
         KindOfQuantity kindOfQuantity = product.getQuantity().getKindOfQuantity();
         Integer integerActual = product.getQuantity().getInteger();
         Integer integerOperate = product.getQuantity().getIntegerOperate();
@@ -38,8 +38,8 @@ public class StockControlService extends StockControl {
         Integer decimalOperate = product.getQuantity().getDecimalOperate();
         int decimalResult;
 
-        integerResult = integerActual - integerOperate;
-        decimalResult = decimalActual - decimalOperate;
+        integerResult = add(integerActual, integerOperate);
+        decimalResult = add(decimalActual, decimalOperate);
 
         product.getQuantity().setInteger(integerResult);
         product.getQuantity().setDecimal(decimalResult);

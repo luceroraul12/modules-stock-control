@@ -8,21 +8,47 @@ import java.util.stream.Collectors;
 public abstract class StockControl {
     public List<Product> substractQuantityAll(List<Product> products){
         return products.stream()
-                .map(this::substractQuantity)
+                .map(p -> {
+                    try {
+                        return substractQuantity(p);
+                    } catch (Exception e) {
+                        throw new RuntimeException("A few products was error in substract");
+                    }
+                })
                 .collect(Collectors.toList());
     };
     public List<Product> addQuantityAll(List<Product> products){
         return products.stream()
-                .map(this::addQuantity)
+                .map(p -> {
+                    try {
+                        return addQuantity(p);
+                    } catch (Exception e) {
+                        throw new RuntimeException("A few products was error in add");
+                    }
+                })
                 .collect(Collectors.toList());
     };
 
-    public boolean verifyPositive(Integer number){
-        return number >= 0;
+    public void verifyPositive(Integer number) throws Exception {
+        if (number < 0){
+            throw new Exception("result negative");
+        }
     }
 
-    public abstract Product substractQuantity(Product product);
-    public abstract Product addQuantity(Product product);
+    public Integer add(Integer a, Integer b) throws Exception {
+        Integer result = a + b;
+        verifyPositive(result);
+        return result;
+    }
+
+    public Integer substract(Integer a, Integer b) throws Exception {
+        Integer result = a + b;
+        verifyPositive(result);
+        return result;
+    }
+
+    public abstract Product substractQuantity(Product product) throws Exception;
+    public abstract Product addQuantity(Product product) throws Exception;
 
 
 
