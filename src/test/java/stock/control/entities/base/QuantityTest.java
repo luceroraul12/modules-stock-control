@@ -1,4 +1,4 @@
-package stock.control.entities;
+package stock.control.entities.base;
 
 import org.junit.jupiter.api.Test;
 import stock.control.enums.KindOfQuantity;

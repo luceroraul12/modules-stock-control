@@ -1,18 +1,14 @@
-package stock.control.entities;
+package stock.control.entities.base;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import stock.control.enums.KindOfQuantity;
 
-@Entity
 @Getter
 @Setter
-public class Quantity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@MappedSuperclass
+public class Quantity extends Identificable {
     @Column(name = "kind-of-quantity")
     private KindOfQuantity kindOfQuantity;
     @Column(name = "integer")
