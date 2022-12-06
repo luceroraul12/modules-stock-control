@@ -22,12 +22,13 @@ class QuantityTest {
     @Test
     void withWEIGHT() {
         Quantity quantity = Quantity.builder()
-                .quantityInteger(500)
+                .quantityDouble(200.0)
                 .kindOfQuantity(KindOfQuantity.WHEIGHT)
                 .build();
 
         assertTrue(quantity.isMinorOrEqualThanQuantityStocked(200.0));
+        assertTrue(quantity.isMinorOrEqualThanQuantityStocked(50.0));
         assertFalse(quantity.isMinorOrEqualThanQuantityStocked(500.0));
-        assertTrue(quantity.isMinorOrEqualThanQuantityStocked(252.34));
+        assertFalse(quantity.isMinorOrEqualThanQuantityStocked(252.34));
     }
 }
