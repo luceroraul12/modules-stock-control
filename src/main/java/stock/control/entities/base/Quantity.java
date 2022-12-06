@@ -1,17 +1,16 @@
 package stock.control.entities.base;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import stock.control.enums.KindOfQuantity;
 
 @Getter
 @Setter
 @Builder
-@MappedSuperclass
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Quantity extends Identificable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
