@@ -12,5 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 public class Product extends Identificable {
-
+    @Column(name = "name")
+    private String name;
 }
