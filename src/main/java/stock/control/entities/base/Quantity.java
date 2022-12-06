@@ -3,6 +3,7 @@ package stock.control.entities.base;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.boot.jackson.JsonComponent;
 import stock.control.enums.KindOfQuantity;
 
 @Getter
@@ -12,9 +13,6 @@ import stock.control.enums.KindOfQuantity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Quantity extends Identificable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "kind-of-quantity")
     private KindOfQuantity kindOfQuantity;
     @Column(name = "q-integer")
@@ -22,7 +20,9 @@ public class Quantity extends Identificable {
     @Column(name = "q-double")
     private Double quantityDouble;
 
+    @Transient
     private Integer quantityIntegerOperate;
+    @Transient
     private Double quantityDoubleOperate;
 
     public boolean isMinorOrEqualThanQuantityStocked(Number quantity){
