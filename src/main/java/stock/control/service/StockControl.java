@@ -10,7 +10,7 @@ public abstract class StockControl {
     /**
      * Apply {@link StockControl#substractQuantity(Quantity)}to each quantity from list
      * @param quantities
-     * @return
+     * @return quantity list modified
      */
     public List<Quantity> substractQuantityAll(List<Quantity> quantities){
         return quantities.stream()
@@ -27,7 +27,7 @@ public abstract class StockControl {
     /**
      * Apply {{@link StockControl#addQuantity(Quantity)}} to each quiantity from list
      * @param products
-     * @return
+     * @return quantity list modified
      */
     public List<Quantity> addQuantityAll(List<Quantity> products){
         return products.stream()
@@ -62,7 +62,7 @@ public abstract class StockControl {
      * add two numbers, if result is negative, throw exception
      * @param a
      * @param b
-     * @return
+     * @return result substracted
      * @throws Exception
      */
     public Integer add(Integer a, Integer b) throws Exception {
@@ -75,7 +75,7 @@ public abstract class StockControl {
      * add two numbers, if result is negative, throw exception
      * @param a
      * @param b
-     * @return
+     * @return result added
      * @throws Exception
      */
     public Double add(Double a, Double b) throws Exception {
@@ -88,7 +88,7 @@ public abstract class StockControl {
      * substract two numbers, if result is negative throw exception
      * @param a
      * @param b
-     * @return
+     * @return result added
      * @throws Exception
      */
     public Integer substract(Integer a, Integer b) throws Exception {
@@ -101,7 +101,7 @@ public abstract class StockControl {
      * substract two numbers, if result is negative throw exception
      * @param a
      * @param b
-     * @return
+     * @return result substracted
      * @throws Exception
      */
     public Double substract(Double a, Double b) throws Exception {
@@ -113,7 +113,7 @@ public abstract class StockControl {
     /**
      * substract a quantity to a Quantity object
      * @param quantity
-     * @return
+     * @return quantity modified
      * @throws Exception
      */
     public abstract Quantity substractQuantity(Quantity quantity) throws Exception;
@@ -121,7 +121,7 @@ public abstract class StockControl {
     /**
      * add a quiantity to a Quantity object
      * @param quantity
-     * @return
+     * @return quantity modified
      * @throws Exception
      */
     public abstract Quantity addQuantity(Quantity quantity) throws Exception;
