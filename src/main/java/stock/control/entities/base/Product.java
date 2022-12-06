@@ -8,14 +8,20 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@MappedSuperclass
 public class Product extends Identificable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "date-created")
     private LocalDateTime dateCreated;
+    @Column(name = "date-modified")
     private LocalDateTime dateModified;
-    protected Quantity quantity;
+//    protected Quantity quantity;
 
     //public methods
-    public boolean isSelleable(Number quantity){
-        return this.quantity.isMinorOrEqualThanQuantityStocked(quantity);
-    };
+//    public boolean isSelleable(Number quantity){
+//        return this.quantity.isMinorOrEqualThanQuantityStocked(quantity);
+//    };
 
 }

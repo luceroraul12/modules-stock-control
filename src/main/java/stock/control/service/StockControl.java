@@ -1,13 +1,14 @@
 package stock.control.service;
 
 import stock.control.entities.base.Product;
+import stock.control.entities.base.Quantity;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class StockControl {
-    public List<Product> substractQuantityAll(List<Product> products){
-        return products.stream()
+    public List<Quantity> substractQuantityAll(List<Quantity> quantities){
+        return quantities.stream()
                 .map(p -> {
                     try {
                         return substractQuantity(p);
@@ -17,7 +18,7 @@ public abstract class StockControl {
                 })
                 .collect(Collectors.toList());
     };
-    public List<Product> addQuantityAll(List<Product> products){
+    public List<Quantity> addQuantityAll(List<Quantity> products){
         return products.stream()
                 .map(p -> {
                     try {
@@ -47,8 +48,8 @@ public abstract class StockControl {
         return result;
     }
 
-    public abstract Product substractQuantity(Product product) throws Exception;
-    public abstract Product addQuantity(Product product) throws Exception;
+    public abstract Quantity substractQuantity(Quantity quantity) throws Exception;
+    public abstract Quantity addQuantity(Quantity quantity) throws Exception;
 
 
 

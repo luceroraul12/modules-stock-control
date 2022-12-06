@@ -6,6 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@MappedSuperclass
 public class Identificable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 }
