@@ -9,9 +9,9 @@ import stock.control.enums.KindOfQuantity;
 @Getter
 @Setter
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@MappedSuperclass
 public class Quantity extends Identificable {
     @Column(name = "kind-of-quantity")
     private KindOfQuantity kindOfQuantity;
