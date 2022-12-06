@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class StockControl {
+    /**
+     * Apply {@link StockControl#substractQuantity(Quantity)}to each quantity from list
+     * @param quantities
+     * @return
+     */
     public List<Quantity> substractQuantityAll(List<Quantity> quantities){
         return quantities.stream()
                 .map(p -> {
@@ -18,6 +23,12 @@ public abstract class StockControl {
                 })
                 .collect(Collectors.toList());
     };
+
+    /**
+     * Apply {{@link StockControl#addQuantity(Quantity)}} to each quiantity from list
+     * @param products
+     * @return
+     */
     public List<Quantity> addQuantityAll(List<Quantity> products){
         return products.stream()
                 .map(p -> {
@@ -30,6 +41,11 @@ public abstract class StockControl {
                 .collect(Collectors.toList());
     };
 
+    /**
+     * Verify if a number is positive, If isnt, throw exception
+     * @param number
+     * @throws Exception
+     */
     public void verifyPositive(Number number) throws Exception {
         boolean result = false;
         if (Integer.class.equals(number.getClass())) {
@@ -42,29 +58,72 @@ public abstract class StockControl {
         }
     }
 
+    /**
+     * add two numbers, if result is negative, throw exception
+     * @param a
+     * @param b
+     * @return
+     * @throws Exception
+     */
     public Integer add(Integer a, Integer b) throws Exception {
         Integer result = a + b;
         verifyPositive(result);
         return result;
     }
+
+    /**
+     * add two numbers, if result is negative, throw exception
+     * @param a
+     * @param b
+     * @return
+     * @throws Exception
+     */
     public Double add(Double a, Double b) throws Exception {
         Double result = a + b;
         verifyPositive(result);
         return result;
     }
 
+    /**
+     * substract two numbers, if result is negative throw exception
+     * @param a
+     * @param b
+     * @return
+     * @throws Exception
+     */
     public Integer substract(Integer a, Integer b) throws Exception {
         Integer result = a - b;
         verifyPositive(result);
         return result;
     }
+
+    /**
+     * substract two numbers, if result is negative throw exception
+     * @param a
+     * @param b
+     * @return
+     * @throws Exception
+     */
     public Double substract(Double a, Double b) throws Exception {
         Double result = a - b;
         verifyPositive(result);
         return result;
     }
 
+    /**
+     * substract a quantity to a Quantity object
+     * @param quantity
+     * @return
+     * @throws Exception
+     */
     public abstract Quantity substractQuantity(Quantity quantity) throws Exception;
+
+    /**
+     * add a quiantity to a Quantity object
+     * @param quantity
+     * @return
+     * @throws Exception
+     */
     public abstract Quantity addQuantity(Quantity quantity) throws Exception;
 
 
