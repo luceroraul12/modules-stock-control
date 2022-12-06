@@ -11,11 +11,13 @@ class StockControlServiceTest {
 
     @Test
     void substractQuantityINTEGER() throws Exception {
-        Quantity q = new Quantity(20);
-        q.setIntegerOperate(10);
+        Quantity q = Quantity.builder()
+                .quantityInteger(20)
+                .quantityIntegerOperate(10)
+                .build();
 
         service.substractQuantity(q);
-        assertEquals(10, q.getInteger());
+        assertEquals(10, q.getQuantityInteger());
     }
 
     @Test

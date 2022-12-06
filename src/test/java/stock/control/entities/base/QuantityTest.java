@@ -9,8 +9,10 @@ class QuantityTest {
 
     @Test
      void withUNIt() {
-        Quantity quantity = new Quantity(500);
-        quantity.setKindOfQuantity(KindOfQuantity.UNIT);
+        Quantity quantity = Quantity.builder()
+                .quantityInteger(500)
+                .kindOfQuantity(KindOfQuantity.UNIT)
+                .build();
 
         assertTrue(quantity.isMinorOrEqualThanQuantityStocked(200));
         assertTrue(quantity.isMinorOrEqualThanQuantityStocked(500));
@@ -19,7 +21,10 @@ class QuantityTest {
 
     @Test
     void withWEIGHT() {
-        Quantity quantity = new Quantity(252,34);
+        Quantity quantity = Quantity.builder()
+                .quantityInteger(500)
+                .kindOfQuantity(KindOfQuantity.WHEIGHT)
+                .build();
 
         assertTrue(quantity.isMinorOrEqualThanQuantityStocked(200.0));
         assertFalse(quantity.isMinorOrEqualThanQuantityStocked(500.0));

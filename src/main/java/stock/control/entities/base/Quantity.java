@@ -1,43 +1,38 @@
 package stock.control.entities.base;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import stock.control.enums.KindOfQuantity;
 
 @Getter
 @Setter
+@Builder
+@MappedSuperclass
 public class Quantity extends Identificable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "kind-of-quantity")
     private KindOfQuantity kindOfQuantity;
-    private Integer integer;
-    private Integer decimal;
+    @Column(name = "q-integer")
+    private Integer quantityInteger;
+    @Column(name = "q-double")
+    private Double quantityDouble;
 
-    private Integer integerOperate;
-    private Integer decimalOperate;
-
-    public Quantity(Integer integer) {
-        this.integer = integer;
-        this.kindOfQuantity = KindOfQuantity.UNIT;
-    }
-
-    public Quantity(Integer integer, Integer decimal) {
-        this.integer = integer;
-        this.decimal = decimal;
-        this.kindOfQuantity = KindOfQuantity.WHEIGHT;
-    }
+    private Integer quantityIntegerOperate;
+    private Double quantityDoubleOperate;
 
     public boolean isMinorOrEqualThanQuantityStocked(Number quantity){
         boolean result = false;
 
         switch (kindOfQuantity){
-            case UNIT -> result = this.integer >= (int) quantity;
-            case WHEIGHT -> result = generateDouble() >= (double)quantity;
+            case UNIT -> result = this.quantityInteger >= (int) quantity;
+            case WHEIGHT -> result = this.quantityDouble >= (double)quantity;
         }
         return result;
-    }
-
-    private Double generateDouble(){
-        return Double.parseDouble(integer+"."+decimal);
     }
 }
