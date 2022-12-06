@@ -59,13 +59,24 @@ class StockControlServiceTest {
     }
 
     @Test
-    void mustThrowException() throws Exception {
+    void addQuantityThrowException() throws Exception {
         Quantity q = Quantity.builder()
                 .quantityDouble(20.241)
                 .quantityDoubleOperate(-1000.23)
                 .kindOfQuantity(KindOfQuantity.WHEIGHT)
                 .build();
 
-        assertThrows(service.addQuantity(q));
+        assertThrows(Exception.class, () -> service.addQuantity(q));
+    }
+
+    @Test
+    void substractQuantityThrowException() throws Exception {
+        Quantity q = Quantity.builder()
+                .quantityDouble(20.241)
+                .quantityDoubleOperate(1000.23)
+                .kindOfQuantity(KindOfQuantity.WHEIGHT)
+                .build();
+
+        assertThrows(Exception.class, () -> service.substractQuantity(q));
     }
 }
