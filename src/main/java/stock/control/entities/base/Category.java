@@ -8,9 +8,6 @@ import lombok.Setter;
 @Setter
 @MappedSuperclass
 public class Category extends Identificable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "category")
     private String name;
 }

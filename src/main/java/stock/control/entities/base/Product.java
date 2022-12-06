@@ -12,9 +12,5 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product extends Identificable {
-    @Column(name = "date-created")
-    private LocalDateTime dateCreated;
-    @Column(name = "date-modified")
-    private LocalDateTime dateModified;
 
 }
