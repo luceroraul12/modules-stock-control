@@ -42,7 +42,7 @@ public abstract class StockControl {
     }
 
     public Integer substract(Integer a, Integer b) throws Exception {
-        Integer result = a + b;
+        Integer result = a - b;
         verifyPositive(result);
         return result;
     }
