@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@MappedSuperclass
+@Entity
 public class Category extends Identificable{
     @Column(name = "category")
     private String name;

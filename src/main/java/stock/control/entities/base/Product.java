@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-@MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Product extends Identificable {
 
 }
