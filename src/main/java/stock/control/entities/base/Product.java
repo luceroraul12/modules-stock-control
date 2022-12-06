@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@MappedSuperclass
 public class Product extends Identificable {
     @Column(name = "name")
     private String name;
