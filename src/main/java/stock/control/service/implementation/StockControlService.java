@@ -11,14 +11,27 @@ public class StockControlService extends StockControl {
 public Quantity substractQuantity(Quantity q) throws Exception {
         KindOfQuantity kindOfQuantity = q.getKindOfQuantity();
 
-        Integer integerActual = q.getQuantityInteger();
-        Integer integerOperate = q.getQuantityIntegerOperate();
-        int integerResult;
+        switch (kindOfQuantity){
+            case UNIT -> {
+                Integer integerActual = q.getQuantityInteger();
+                Integer integerOperate = q.getQuantityIntegerOperate();
+                int integerResult;
+                integerResult = substract(integerActual, integerOperate);
+                verifyPositive(integerResult);
+                q.setQuantityInteger(integerResult);
+            }
+            case WHEIGHT -> {
+                Double doubleActual = q.getQuantityDouble();
+                Double doubleOperate = q.getQuantityDoubleOperate();
+                double doubleResult;
+                doubleResult = substract(doubleActual, doubleOperate);
+                verifyPositive(doubleResult);
+                q.setQuantityDouble(doubleResult);
+            }
+
+        }
 
 
-        integerResult = substract(integerActual, integerOperate);
-
-        q.setQuantityInteger(integerResult);
 
         return q;
     }
@@ -26,13 +39,25 @@ public Quantity substractQuantity(Quantity q) throws Exception {
     @Override
     public Quantity addQuantity(Quantity q) throws Exception {
         KindOfQuantity kindOfQuantity = q.getKindOfQuantity();
-        Integer integerActual = q.getQuantityInteger();
-        Integer integerOperate = q.getQuantityIntegerOperate();
-        int integerResult;
 
-        integerResult = add(integerActual, integerOperate);
-
-        q.setQuantityInteger(integerResult);
+        switch (kindOfQuantity){
+            case UNIT -> {
+                Integer integerActual = q.getQuantityInteger();
+                Integer integerOperate = q.getQuantityIntegerOperate();
+                int integerResult;
+                integerResult = add(integerActual, integerOperate);
+                verifyPositive(integerResult);
+                q.setQuantityInteger(integerResult);
+            }
+            case WHEIGHT -> {
+                Double doubleActual = q.getQuantityDouble();
+                Double doubleOperate = q.getQuantityDoubleOperate();
+                double doubleResult;
+                doubleResult = add(doubleActual, doubleOperate);
+                verifyPositive(doubleResult);
+                q.setQuantityDouble(doubleResult);
+            }
+        }
 
         return q;
     }

@@ -30,9 +30,15 @@ public abstract class StockControl {
                 .collect(Collectors.toList());
     };
 
-    public void verifyPositive(Integer number) throws Exception {
-        if (number < 0){
-            throw new Exception("result negative");
+    public void verifyPositive(Number number) throws Exception {
+        boolean result = false;
+        if (Integer.class.equals(number.getClass())) {
+            result = (int) number >= 0;
+        } else if (Double.class.equals(number.getClass())) {
+            result = (double) number >= 0;
+        }
+        if (!result){
+            throw new Exception("number is negative");
         }
     }
 
@@ -41,9 +47,19 @@ public abstract class StockControl {
         verifyPositive(result);
         return result;
     }
+    public Double add(Double a, Double b) throws Exception {
+        Double result = a + b;
+        verifyPositive(result);
+        return result;
+    }
 
     public Integer substract(Integer a, Integer b) throws Exception {
         Integer result = a - b;
+        verifyPositive(result);
+        return result;
+    }
+    public Double substract(Double a, Double b) throws Exception {
+        Double result = a - b;
         verifyPositive(result);
         return result;
     }
